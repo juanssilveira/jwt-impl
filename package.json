@@ -1,0 +1,17 @@
+{
+  "name": "jwt-impl",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "tsx ./examples.ts"
+  },
+  "devDependencies": {
+    "@types/ms": "^0.7.34",
+    "@types/node": "^20.12.7",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "ms": "^2.1.3"
+  }
+}
