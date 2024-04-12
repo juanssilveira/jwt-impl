@@ -13,7 +13,7 @@ export function verify({ secret, token }: JwtVerifyOptions) {
     providedSignature,
   ] = token.split('.')
 
-  const hmacSignature = generateHmac256Signature({
+  const originalSignature = generateHmac256Signature({
     secret,
     str: `${encodedBase64UrlHeader}.${encodedBase64UrlPayload}`
   })
@@ -24,7 +24,7 @@ export function verify({ secret, token }: JwtVerifyOptions) {
       .toString('utf8')
   )
 
-  const isValidSignature = providedSignature === hmacSignature
+  const isValidSignature = providedSignature === originalSignature
   const isExpiredToken = decodedPayload.exp < convertTimestampToUnix(Date.now())
 
   if (!isValidSignature) {
